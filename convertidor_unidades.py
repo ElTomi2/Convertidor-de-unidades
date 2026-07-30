@@ -40,7 +40,7 @@ if inunit in validos[0:3]:
     tipo_unit = "Temp"
     outunit = input("A que unidad convertir?\n").title().strip()
     while outunit not in validos[0:3]:
-        outunit = input("Ingrese una unidad de temperatura válida. ")
+        outunit = input("Ingrese una unidad de temperatura válida. ").title().strip()
     match outunit:
         case "Celcius":
             if inunit == "Fahrenheit":
@@ -61,85 +61,85 @@ elif inunit in validos[3:9]:
     tipo_unit = "Dist"
     outunit = input("A que unidad convertir?\n").title().strip()
     while outunit not in validos[3:9]:
-        outunit = input("Ingrese una unidad de distancia válida. ")
-    match outunit:
+        outunit = input("Ingrese una unidad de distancia válida. ").title().strip()
+    match outunit: #Dependiendo de la salida elegida.
         case "Kilometros":
-            match inunit:
+            match inunit: #Busca como transformar la entrada.
                 case "Metros":
-                    outvalue = inval*1000
+                    outvalue = inval/1000
                 case "Centimetros":
-                    outvalue = inval*100000
+                    outvalue = inval/100000
                 case "Millas":
-                    outvalue = inval/1.609
+                    outvalue = inval*1.609
                 case "Pies":
-                    outvalue = inval*3280
+                    outvalue = inval/3280
                 case "Pulgadas":
-                    outvalue = inval*39370
+                    outvalue = inval/39370
         case "Centimetros":
             match inunit:
                 case "Kilometros":
-                    outvalue = inval/100000
+                    outvalue = inval*100000
                 case "Metros":
-                    outvalue = inval/100
+                    outvalue = inval*100
                 case "Millas":
-                    outvalue = inval/1609
+                    outvalue = inval*160934
                 case "Pies":
-                    outvalue = inval/30.48
+                    outvalue = inval*30.48
                 case "Pulgadas":
-                    outvalue = inval/2.54
+                    outvalue = inval*2.54
         case "Metros":
             match inunit:
                 case "Kilometros":
-                    outvalue = inval/1000
+                    outvalue = inval*1000
                 case "Centimetros":
-                    outvalue = inval*100
+                    outvalue = inval/100
                 case "Millas":
-                    outvalue = inval/1609
+                    outvalue = inval*1609
                 case "Pies":
-                    outvalue = inval*3.28
+                    outvalue = inval/3.28
                 case "Pulgadas":
-                    outvalue = inval*39.37
+                    outvalue = inval/39.37
         case "Millas":
             match inunit:
                 case "Kilometros":
-                    outvalue = inval*1.61
+                    outvalue = inval/1.61
                 case "Centimetros":
-                    outvalue = inval*160900
+                    outvalue = inval/160900
                 case "Metros":
-                    outvalue = inval*1609
+                    outvalue = inval/1609
                 case "Pies":
-                    outvalue = inval*5280
+                    outvalue = inval/5280
                 case "Pulgadas":
-                    outvalue = inval*63360
+                    outvalue = inval/63360
         case "Pies":
             match inunit:
                 case "Kilometros":
-                    outvalue = inval*1.61
+                    outvalue = inval*3280.84
                 case "Centimetros":
-                    outvalue = inval*30.48
+                    outvalue = inval/30.48
                 case "Metros":
-                    outvalue = inval/3.281
+                    outvalue = inval*3.281
                 case "Millas":
-                    outvalue = inval/5280
+                    outvalue = inval*5280
                 case "Pulgadas":
-                    outvalue = inval*12
-        case "Pulgadas":
-            match inunit:
-                case "Kilometros":
-                    outvalue = inval/39370
-                case "Centimetros":
-                    outvalue = inval*2.54
-                case "Metros":
-                    outvalue = inval/39.37
-                case "Millas":
-                    outvalue = inval/63360
-                case "Pies":
                     outvalue = inval/12
+        case "Pulgadas":
+            match inunit: 
+                case "Kilometros":
+                    outvalue = inval*39370
+                case "Centimetros":
+                    outvalue = inval/2.54
+                case "Metros":
+                    outvalue = inval*39.37
+                case "Millas":
+                    outvalue = inval*63360
+                case "Pies":
+                    outvalue = inval*12
 
 print("Resultado:")
 if tipo_unit == "Temp":
     print(f"{inval}° {inunit} a {round(outvalue, 2)}° {outunit}")
     #print(str(inval) + "° " + inunit + " a " + str(round(outvalue, 2)) +"° " + outunit)
 elif tipo_unit == "Dist":
-    print(f"{inval} {inunit} a {round(outvalue, 2)} {outunit}")
+    print(f"{inval} {inunit} a {outvalue} {outunit}")
     #print(str(inval)+ " " + inunit + " a " + str(round(outvalue, 2))+ " " + outunit)
