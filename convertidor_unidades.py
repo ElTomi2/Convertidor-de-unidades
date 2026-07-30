@@ -1,4 +1,4 @@
-validos = (
+validos: tuple[str, ...] = (
     "Celcius",
     "Fahrenheit",
     "Kelvin",
@@ -11,7 +11,7 @@ validos = (
 
 print("Convertidor de Unidades\n")
 outvalue = None
-inunit = input("""Cuál es la unidad de entrada?
+inunit: str = input("""Cuál es la unidad de entrada?
 Distancia:
     Metros
     Centimetros
@@ -25,7 +25,7 @@ Temperatura:
     Kelvin\n""").title().strip()
 
 while inunit not in validos:
-    inunit = input("Ingrese una unidad válida\n").title().strip()
+    inunit: str = input("Ingrese una unidad válida\n").title().strip()
 
 while True:
     try:
@@ -38,9 +38,9 @@ outvalue = inval
 
 if inunit in validos[0:3]:
     tipo_unit = "Temp"
-    outunit = input("A que unidad convertir?\n").title().strip()
+    outunit: str = input("A que unidad convertir?\n").title().strip()
     while outunit not in validos[0:3]:
-        outunit = input("Ingrese una unidad de temperatura válida. ").title().strip()
+        outunit: str = input("Ingrese una unidad de temperatura válida. ").title().strip()
     match outunit:
         case "Celcius":
             if inunit == "Fahrenheit":
