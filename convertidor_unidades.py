@@ -36,7 +36,9 @@ while True:
         
 outvalue = inval
 
+
 if inunit in validos[0:3]:
+    #TODO: Juntar la lógica de temperatura en su propia función.
     tipo_unit = "Temp"
     outunit: str = input("A que unidad convertir?\n").title().strip()
     while outunit not in validos[0:3]:
@@ -58,6 +60,7 @@ if inunit in validos[0:3]:
             elif inunit == "Fahrenheit":
                 outvalue = (inval -32)*5/9 + 273.15
 elif inunit in validos[3:9]:
+    #TODO: Juntar la lógica de distancias en su propia función.
     tipo_unit = "Dist"
     outunit = input("A que unidad convertir?\n").title().strip()
     while outunit not in validos[3:9]:
